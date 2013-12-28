@@ -8,7 +8,7 @@
 
 'use strict';
 
-var figlet = require('../../figlet/lib/node-figlet');
+var figlet = require('figlet');
 
 GLOBAL.figlet = figlet;
 
