@@ -1,6 +1,16 @@
 # grunt-figlet
 
-> Adds ASCII Art banners to source code.
+> A plugin for Grunt that adds ASCII Art banners to source code.
+
+```
+   ____     ____      _   _   _   _     _____    _    
+U /"___|uU |  _"\ uU |"|u| | | \ |"|   |_ " _| U|"|u  
+\| |  _ / \| |_) |/ \| |\| |<|  \| |>    | |   \| |/  
+ | |_| |   |  _ <    | |_| |U| |\  |u   /| |\   |_|   
+  \____|   |_| \_\  <<\___/  |_| \_|   u |_|U   (_)   
+  _)(|_    //   \\_(__) )(   ||   \\,-._// \\_  |||_  
+ (__)__)  (__)  (__)   (__)  (_")  (_/(__) (__)(__)_) 
+ ```
 
 ## Getting Started
 This plugin requires Grunt `~0.4.2`
