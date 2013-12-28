@@ -47,7 +47,7 @@ module.exports = function(grunt) {
             figletObj[target] = data;
             grunt.config.set('figlet', figletObj);
 
-            grunt.log.writeln('Banner for '+target+' genereated.');
+            grunt.log.writeln('Banner for '+target+' generated.');
             done(err);
         });
     });
