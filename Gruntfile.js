@@ -43,6 +43,19 @@ module.exports = function(grunt) {
             defaultOptions: 'Test',
             defaultOptions2: 'FIGlet\nFONTS',
 
+            customComment: {
+                options: {
+                    text: 'Code Comment',
+                    font: 'Graffiti',
+                    comment: {
+                        style: 'js',
+                        generate: function(asciiArtText) {
+                            return asciiArtText + '\nThis is a test message.\nMore random text\nAnd some more...';
+                        }
+                    }
+                }
+            },
+
             standard: {
                 options: {
                     text: 'FIGlet\nFONTS',
@@ -71,7 +84,7 @@ module.exports = function(grunt) {
 
         uglify:{
             options: {
-                banner: '/*\n<%= figlet.defaultOptions2 %>\n*/\n'
+                banner: '<%= figlet.customComment %>\n'
             },
             sample: {
                 src:'test/fixtures/sample.js',

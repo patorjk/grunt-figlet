@@ -43,11 +43,22 @@ grunt.initConfig({
         },
         banner1: 'Some Text',
         banner2: 'More Text',
+        
+        /*
+            More advanced options let you customize the text and create a comment block
+            for the ASCII Art
+        */
+
         banner3: {
             options: {
-                text: '#3',
+                text: 'Code Comment',
                 font: 'Graffiti',
-                horizontalLayout: 'fitted',
+                comment: {
+                    style: 'js',
+                    generate: function(asciiArtText) {
+                        return asciiArtText + '\nThis is a test message.\nMore random text\nAnd some more...';
+                    }
+                }
             }
         }
     },
@@ -60,7 +71,7 @@ grunt.initConfig({
 
     uglify:{
         options: {
-            banner: '/*\n<%= figlet.banner1 %>\n*/\n'
+            banner: '<%= figlet.banner3 %>\n'
         },
         sample: {
             src: 'some-file.js',
@@ -72,7 +83,7 @@ grunt.initConfig({
 
 ### Options
 
-This task primary delegates to [FIGlet.js](https://github.com/patorjk/figlet.js). It takes in the same options. 
+This task primary delegates to [FIGlet.js](https://github.com/patorjk/figlet.js), though it takes in some additional options. 
 
 #### options.text
 Type: `String`
@@ -97,6 +108,24 @@ Type: `String`
 Default value: `'default'`
 
 A string value that indicates the vertical layout to use. FIGlet fonts have 5 possible values for this: "default", full", "fitted", "controlled smushing", and "universal smushing". "default" does the kerning the way the font designer intended, "full" uses full letter spacing, "fitted" moves the letters together until they almost touch, and "controlled smushing" and "universal smushing" are common FIGlet kerning setups.
+
+#### options.comment
+Type: `Object`
+Default value: `undefined`
+
+If present, then a comment block will be constructed (see examples down below).
+
+#### options.comment.style
+Type: `String` or `Function`
+Default value: `'js'`
+
+Indicates the style of the comment. Right now only "js" is supported. If you want to create a custom comment style, you can make this equal to a function that takes in the final comment block text. This function should return the final comment block.
+
+#### options.comment.generate
+Type: `Function`
+Default value: A function that returns the generated ASCII Art text.
+
+Indicates how to construct the comment block text. This should equal a function that takes in the ASCII Art text and returns the final comment message. You can use this if you want to add additional text on top of the generated ASCII Art.
 
 ### Usage Examples
 
@@ -135,10 +164,14 @@ grunt.initConfig({
     figlet: {
         banner1: {
             options: {
-                text: '#3',
+                text: 'Code Comment',
                 font: 'Graffiti',
-                horizontalLayout: 'fitted',
-                verticalLayout: 'fitted'
+                comment: {
+                    style: 'js',
+                    generate: function(asciiArtText) {
+                        return asciiArtText + '\nThis is a test message.\nMore random text\nAnd some more...';
+                    }
+                }
             }
         }
     },
@@ -165,4 +198,5 @@ grunt.initConfig({
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
-* 2013.28.12 v0.1.0 Initial release.
+* 2014.01.03 v0.1.1 Added the comment option.
+* 2013.12.28 v0.1.0 Initial release.

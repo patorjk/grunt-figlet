@@ -45,6 +45,15 @@ exports.figlet = {
         
         test.done();
     },
+    customComment: function(test) {
+        test.expect(1);
+        
+        var actual = grunt.config.get('figlet').customComment;
+        var expected = grunt.file.read('test/expected/customComment');
+        test.equal(actual, expected, 'Standard font with a vertical layout of "fitted".');
+
+        test.done();    
+    },
     standard: function(test) {
         test.expect(1);
         
