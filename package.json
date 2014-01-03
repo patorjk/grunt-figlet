@@ -2,6 +2,7 @@
   "name": "grunt-figlet",
   "description": "Adds ASCII Art banners to source code.",
   "version": "0.1.1",
+  "keywords": ["figlet", "ascii", "art", "banner", "gruntplugin"],
   "homepage": "",
   "author": {
     "name": "Patrick Gillespie",
