@@ -56,7 +56,8 @@ grunt.initConfig({
                 comment: {
                     style: 'js',
                     generate: function(asciiArtText) {
-                        return asciiArtText + '\nThis is a test message.\nMore random text\nAnd some more...';
+                        return asciiArtText + '\nThis is a test message.'
+                            + '\nMore random text\nAnd some more...';
                     }
                 }
             }
@@ -169,7 +170,8 @@ grunt.initConfig({
                 comment: {
                     style: 'js',
                     generate: function(asciiArtText) {
-                        return asciiArtText + '\nThis is a test message.\nMore random text\nAnd some more...';
+                        return asciiArtText + '\nThis is a test message.'
+                            +'\nMore random text\nAnd some more...';
                     }
                 }
             }
