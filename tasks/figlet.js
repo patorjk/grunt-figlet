@@ -12,6 +12,8 @@ var figlet = require('figlet');
 
 GLOBAL.figlet = figlet;
 
+console.log('this is a test');
+
 module.exports = function(grunt) {
 
     var commentFuncts = {};
